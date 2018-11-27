@@ -9,3 +9,7 @@
 - travic CI
 - unit test 
 - AWS
+
+## step by step 
+ - node server
+ -
