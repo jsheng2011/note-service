@@ -1,24 +1,58 @@
 'use strict';
 var mongoose = require('mongoose');
+
 var Schema = mongoose.Schema;
 
 
 var NotesSchema = new Schema({
-  name: {
-    type: String,
-    required: 'Kindly enter the note'
-  },
-  Created_date: {
-    type: Date,
-    default: Date.now
-  },
-  status: {
-    type: [{
+  category: {
+     type: [{
       type: String,
-      enum: ['pending', 'ongoing', 'completed']
+      enum: ['article', 'vocabulary', 'note', 'idea', 'todo']
     }],
-    default: ['pending']
+  },
+  article: {
+    link: String,
+    read: Boolean,
+    memo: [
+      {
+        content: String,
+        modifiedTime: String,
+        createdTime: String,
+      }
+    ],
+    article:{
+      content: String,
+      modifiedTime: String,
+      createdTime: String,
+    },
+  },
+  vocabulary: {
+    word: String,
+    translation: String,
+    direction: Array
+  },
+  note: {
+    source: String,
+    note: {
+      author: String,
+      content: String,
+    }
+  },
+  idea: {
+    content: String
+  },
+  todo: {
+    status: String,
+    content: String
+  },
+  reminder: {
+    time: String,
+    latestRemind: String,
+    remindedTime: Array, 
+    nextRemindTime: String, 
   }
 });
+
 
 module.exports = mongoose.model('Notes', NotesSchema);
