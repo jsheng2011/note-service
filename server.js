@@ -1,6 +1,6 @@
 var express = require('express');
-const app = express(),
-  port = process.env.PORT || 3000,
+var app = express(),
+  port = process.env.PORT || 12138,
   mongoose = require('mongoose'),
   NoteModel = require('./api/models/noteModel'), //created model loading here
   bodyParser = require('body-parser');
