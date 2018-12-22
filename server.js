@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var app = express(),
   port = process.env.PORT || 12138,
   mongoose = require('mongoose'),
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 var routes = require('./api/routes/noteRoutes'); //importing route
 routes(app); //register the route
 
-
+app.options('*', cors());
 app.listen(port);
 
 
