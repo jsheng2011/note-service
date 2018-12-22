@@ -5,7 +5,8 @@ module.exports = function(app) {
   // todoList Routes
   app.route('/notes')
     .get(todoList.list_all_notes)
-    .post(todoList.create_a_note);
+    .post(todoList.create_a_note)
+    .delete(todoList.delete_all_notes);
 
 
   app.route('/notes/:noteId')

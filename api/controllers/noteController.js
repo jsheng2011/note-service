@@ -53,3 +53,13 @@ exports.delete_a_note = function(req, res) {
   });
 };
 
+exports.delete_all_notes = function(req, res) {
+  Note.remove({}, 
+    function(err, note) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'All successfully deleted' });
+    }
+  );
+};
+
