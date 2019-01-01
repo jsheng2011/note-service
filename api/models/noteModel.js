@@ -5,11 +5,11 @@ var Schema = mongoose.Schema;
 
 
 var NotesSchema = new Schema({
+  modifiedTime: String,
+  createdTime: String,
   category: {
-     type: [{
       type: String,
       enum: ['article', 'vocabulary', 'note', 'idea', 'todo']
-    }],
   },
   article: {
     link: String,
@@ -23,8 +23,6 @@ var NotesSchema = new Schema({
     ],
     article:{
       content: String,
-      modifiedTime: String,
-      createdTime: String,
     },
   },
   vocabulary: {

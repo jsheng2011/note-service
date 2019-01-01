@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 var routes = require('./api/routes/noteRoutes'); //importing route
 routes(app); //register the route
 
-app.options('*', cors());
+app.use(cors())
 app.listen(port);
 
 

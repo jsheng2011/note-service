@@ -35,7 +35,7 @@ exports.read_a_note = function(req, res) {
 
 
 exports.update_a_note = function(req, res) {
-  Task.findOneAndUpdate({_id: req.params.noteId}, req.body, {new: true}, function(err, note) {
+  Note.findOneAndUpdate({_id: req.params.noteId}, req.body, {new: true}, function(err, note) {
     if (err)
       res.send(err);
     res.json(note);
