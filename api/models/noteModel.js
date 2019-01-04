@@ -9,11 +9,21 @@ var NotesSchema = new Schema({
   createdTime: String,
   category: {
       type: String,
-      enum: ['article', 'vocabulary', 'note', 'idea', 'todo']
+      enum: ['article', 'vocabulary', 'note', 'idea', 'todo', 'term']
+  },
+  term: {
+    term:String,
+    source: String,
+    link: String,
+    explanation: String,
+    bulletPoint: [
+      {type:String}
+    ],
   },
   article: {
     link: String,
     read: Boolean,
+    title: String,
     memo: [
       {
         content: String,
