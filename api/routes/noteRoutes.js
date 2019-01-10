@@ -1,22 +1,27 @@
 'use strict';
 module.exports = function(app) {
-  var todoList = require('../controllers/noteController');
-  var translation = require('../controllers/translationController');
+  var noteController = require('../controllers/noteController');
+  var translationController = require('../controllers/translationController');
+  var markdownController = require('../controllers/markdownController');
 
 
-  // todoList Routes
+  // noteController Routes
   app.route('/notes')
-    .get(todoList.list_all_notes)
-    .post(todoList.create_a_note)
-    .delete(todoList.delete_all_notes);
+    .get(noteController.list_all_notes)
+    .post(noteController.create_a_note)
+    .delete(noteController.delete_all_notes);
 
 
   app.route('/notes/:noteId')
-    .get(todoList.read_a_note)
-    .put(todoList.update_a_note)
-    .delete(todoList.delete_a_note);
+    .get(noteController.read_a_note)
+    .put(noteController.update_a_note)
+    .delete(noteController.delete_a_note);
 
   // translation Routes
   app.route('/translation/:word')
-    .get(translation.getTranslation)
+    .get(translationController.getTranslation)
+
+  // translation Routes
+  app.route('/preview')
+    .post(markdownController.convertMarkdownFormat)
 };
